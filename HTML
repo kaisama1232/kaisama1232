@@ -1,0 +1,84 @@
+<html>
+<body>
+    <block-size 100vh;>
+    <inline-size: 100vw;>
+    <background-color: black;>
+    <margin: 0rem;>
+    <overflow: hidden;>
+
+
+<div
+ (id="image-animate") </div id="image-track" data-mouse-down-at="0" data-prev-percentage="0">
+<img class="image" src="https://images.unsplash.com/photo-1542902093-d55926049754?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bmlnaHQlMjBjaXR5fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" draggable="false"/>
+<img class="image" src="https://images.unsplash.com/photo-1517328894681-0f5dfabd463c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fG5pZ2h0JTIwY2l0eXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" draggable="false" />
+<img class="image" src="https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" draggable="false" />
+<img class="image" src="https://images.unsplash.com/photo-1684827844157-5a9085408044?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyfHx8ZW58MHx8fHx8&auto=format&fit=crop&w=500&q=60" draggable="false" />
+<img class="image" src="https://images.unsplash.com/photo-1684419081530-d0dd7ed6921a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0Mnx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60" draggable="false" />
+<img class="image" src="https://images.unsplash.com/photo-1684748370133-92f83adba386?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw3MHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60" draggable="false" />
+<img class="image" src="https://images.unsplash.com/photo-1684528905602-236109cf45c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw4Mnx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60" draggable="false" />
+
+
+<image animate .image {
+    inline-size: 40vmin;
+    block-size: 56vmin;
+    object-fit: cover;
+    object-position: center center;
+    
+    animation: moveImage linear infinite alternate forwards;  Add the animate class to start the animation *
+    }
+    @keyframes moveImage {
+    from{
+    opacity: 1;
+    transform: scale(.9);
+    }
+    
+    to{
+    opacity:.7;
+    transform:scale(1.3);
+    }
+    } 
+
+    #image-track {
+        display: flex;
+        gap: 4vmin;
+        position: absolute;
+        inset-inline-start: 50%;
+        inset-block-start: 50%;
+        transform: translate(-50%, -50%);
+      }
+       
+      const track,document.getElementById (image-track);
+      let prevPercentage = null;
+      let startMousePosition = null;
+      
+      ( Track the users dragging behavior and update the slider accordingly
+      document.addEventListener)(mousemove, event = {
+         Ignore events that don't have valid coordinates or where the primary button was not pressed down
+        if (!event ||!event.pageX ||!event.pageY|| event.buttons!= 1 ) {
+            return;
+        }
+      
+        let percentageDelta = Math.round((startMousePosition - event.pageX)(window.innerWidth*100);
+        
+        { console.log(`Percentage delta ${percentageDelta}`);
+      
+         Update the current slide based on how far they dragged horizontally
+        setSlideIndex(currentSlideIndex + percentageDelta 100);
+      };
+      
+      function handleMouseDown() {
+         Set up tracking variables when the user starts dragging
+        startMousePosition event.pageX;
+        prevPercentage getSlidePercentages()[currentSlideIndex];
+      }
+      
+       When the user lifts their finger after dragging, reset our state to prepare for another interaction
+      document.addEventListener {(mouseup
+        startMousePosition = null;
+        prevPercentage = null;
+      )};
+      
+    </div>
+    </body> 
+      </html>
+    
